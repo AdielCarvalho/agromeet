@@ -159,6 +159,8 @@ ul {
 #itaipu,
 #agriShow {
   cursor: not-allowed;
+  width: 350px;
+  height: 200px;
 }
 
 #imgDetNorteShow,
