@@ -161,6 +161,12 @@ ul {
   cursor: not-allowed;
 }
 
+#imgDetNorteShow,
+#imgDetSealba {
+  width: 350px;
+  height: 200px;
+}
+
 .btn {
   padding: 0.8rem 1rem;
   border: none;
