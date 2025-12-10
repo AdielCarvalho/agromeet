@@ -117,92 +117,81 @@ ul {
     |             Estilos Carrossel             |
     +-------------------------------------------+*/
 
-.imagensCarrossel {
-  width: 300px;
-  height: 200px;
+.container {
+  padding: 15px;
+  max-width: 1400px;
+  margin: auto;
+  gap: 2rem;
+  display: flex;
+}
+
+#setaEsquerda,
+#setaDireita {
+  width: 40px;
+}
+
+#setaDireita {
+  left: auto;
+  right: 0;
+  background: transparent
+}
+
+.gallery-wrapper {
+  overflow-x: auto;
+}
+
+.gallery {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 15px;
+}
+
+.arrow-left,
+.arrow-right {
+  /* position: absolute; */
+  top: auto;
+  left: 0;
+  right: auto;
+  bottom: auto;
+  line-height: 250px;
+  width: 40px;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+
+.arrow-right {
+  /* left: auto;
+  right: 0; */
+  background: transparent
+}
+
+.item {
+  width: 395px;
+  height: 250px;
+  flex-shrink: 0;
+  opacity: 0.5;
+  border: 2px solid white;
+  transition: all 600ms ease-in-out;
   cursor: pointer;
   transition: 0.25s;
   flex-shrink: 0;
 }
-
-.imagensCarrossel:hover {
-  transform: scale(1.1);
-}
-/* Ue pra que isso se tem classe?
-#agroBrasilia {
-  width: 350px;
-  height: 200px;
+.item:hover {
+  transform: scale(1.02)
 }
 
-#norteShow {
-  width: 350px;
-  height: 200px;
+.current-item {
+  opacity: 1;
 }
 
-#sealba {
-  width: 350px;
-  height: 200px;
-}
-
-#itaipu {
-  width: 350px;
-  height: 200px;
-}
-
-#agriShow {
-  width: 350px;
-  height: 200px;
-} */
-
-#norteShow,
-#sealba,
-#itaipu,
-#agriShow {
-  cursor: not-allowed;
-  width: 350px;
-  height: 200px;
-}
-
-#imgDetNorteShow,
-#imgDetSealba {
-  width: 350px;
-  height: 200px;
-}
-
-.btn {
-  padding: 0.8rem 1rem;
-  border: none;
-  border-radius: 100%;
-  cursor: pointer;
-  border: none;
-  background-color: #fff;
-  color: #124421;
-  /* margin-bottom: 20px; */
-  font-size: 18px;
-  /* position: absolute;*/
-}
-
-#carrossel {
-  background-color: #2a2b26;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding: 2rem;
-  margin-bottom: 40px;
-  position: relative;
-  gap: 1rem;
-}
-
-#segundaSessao,
-#primeiraSessao {
+.gallery-wrapper::-webkit-scrollbar {
   display: none;
-  display: flex;
-  gap: 15px;
 }
 
-#segundaSessao {
-  display: none;
+img {
+  line-height: 300px;
 }
 
 /*  +-------------------------------------------+
