@@ -85,41 +85,56 @@ ir para o topo.
 // }
 
 /*  +-------------------------------------------+
-    |       CARROSEL DE IMAGENS  parte Final    |
+    |       CARROSEL DE IMAGENS  parte 3        |
     +-------------------------------------------+*/
 
-const controls = document.querySelectorAll('.control');
-let currentItem = 0;
-const items = document.querySelectorAll('.item');
-const maxItems = items.length;
+let lista = document.getElementById("carrossel");
+let botaoEsquerdo = document.getElementById("btnVoltar");
+let botaoDireito = document.getElementById("btnPassar");
+let primeiraSessao = document.getElementById("primeiraSessao");
+let segundaSessao = document.getElementById("segundaSessao");
 
-controls.forEach(control => {
-    control.addEventListener('click', () => {
-        const isLeft = control.classList.contains('arrow-left');
+botaoDireito.addEventListener("click", () => {
+  console.log("clicado direita");
 
-        if (isLeft) {
-            currentItem -= 1
-        } else {
-            currentItem += 1
-        }
+  // Carrossel da Shopee kkkkk
 
-        if (currentItem >= maxItems) {
-            currentItem = 0
-        } if (currentItem < 0) {
-            currentItem = maxItems - 1
-        }
-        console.log('control clicked', isLeft, currentItem,maxItems);
+  if (
+    segundaSessao.style.display == "block" &&
+    primeiraSessao.style.display == "none"
+  ) {
+    segundaSessao.style.display = "none";
+    primeiraSessao.style.display = "block";
+  } else {
+    segundaSessao.style.display = "block";
+    primeiraSessao.style.display = "none";
+  }
 
-        items.forEach( item => item.classList.remove('current-item'));
-
-        items[currentItem].scrollIntoView({
-            inline:"center",
-            behavior:"smooth"
-        })
-        items[currentItem].classList.add('current-item')
-    });
+  //lista.scrollLeft += 700;
+  //lista.style.scrollLeft += 700;
 });
 
+//sera se não tem que passar esses paramentro com style não?
+// tipo isso: lista.style.scrollLeft += 700;
+// eu fiz de um jeito mais simplificado , usando uma div e as imagens dentro dela
+
+botaoEsquerdo.addEventListener("click", () => {
+  console.log("clicado esquerda");
+
+  if (
+    segundaSessao.style.display == "none" &&
+    primeiraSessao.style.display == "block"
+  ) {
+    segundaSessao.style.display = "block";
+    primeiraSessao.style.display = "none";
+  } else {
+    segundaSessao.style.display = "none";
+    primeiraSessao.style.display = "block";
+  }
+
+  // lista.scrollLeft -= 700;
+  // lista.style.scrollLeft += 700;
+});
 
 /*  +-------------------------------------------+
     |           Abrir Site Eventos              |
@@ -142,51 +157,109 @@ redirecionar("siteAgriShow");
 
 // Teste -> mostra evento especifico com base em alguma condição
 
-let evento1 = document.getElementById("agroBrasilia");
-let infoEvento1 = document.getElementById("detalhes");
+// let evento1 = document.getElementById("agroBrasilia");
+// let infoEvento1 = document.getElementById("detalhes");
 
-evento1.addEventListener("click", () => {
-  console.log("AgroBrasília");
-  infoEvento1.style.display = "block";
-});
+// evento1.addEventListener("click", () => {
+//   console.log("AgroBrasília");
+//   infoEvento1.style.display = "block";
+// });
 
-let selecao = document.getElementById("regioes");
+//select funcionando as regioaes
+const regiao = document.getElementById("legenda-regiao");
 
-selecao.addEventListener("change", () => {
-  console.log(`teste ${selecao.value}`);
+document.getElementById("regioes").addEventListener("change", (event) => {
+  const valor = event.target.value;
 
-  selecao.value == "CentroOeste"
-    ? (infoEvento1.style.display = "block")
-    : (infoEvento1.style.display = "none");
-});
+  //* Norte
+  if (valor === "Norte") {
+    regiao.innerHTML = 
+    `<div class="eventosSelect">
+      <h3> Rondônia Rural Show Internacional 2026</h3> 
+      <strong>Data:</strong> 25 a 30 de maio de 2026<br> 
+      <strong>Local:</strong> Sede oficial da Rondônia Rural Show Internacional, Ji-Paraná - RO<br>
+    <a class = "linkEventosSelect" href="https://portalbrasil.com.br/rondonia-rural-show-internacional-2026-agro-exportacao-e-desenvolvimento/" target="portalBrasil">Mais informações</a><br>
 
-// Teste -> mostra evento especifico com base em alguma condição
+    
+    <br><h3>FENETEC PARÁ 2026</h3>
+    <strong>Data:</strong> 20 a 22 de maio de 2026<br> 
+    <strong>Local:</strong> Dom Eliseu – PA<br>
+    <a class = "linkEventosSelect" href="https://portalbrasil.com.br/fenetec-para-2026-tecnologia-inovacao-e-negocios-no-agro-paraense/" target="fenetec">Mais informações</a><br>
+    </div>`;
+    regiao.style.display = "block";
+    
+  }
 
-let evento1 = document.getElementById("agroBrasilia");
-let evento2 = document.getElementById("detalhesNorteShow");
-let evento3 = document.getElementById("detalhesSealba");
-let evento4 = document.getElementById("detalhesItaipu");
-let evento5 = document.getElementById("detalhesAgriShow");
-let infoEvento1 = document.getElementById("detalhes");
-let imagem1 = document.getElementById("imgDetNorteShow")
-let imagem2 = document.getElementById("imgDetSealba")
-let imagem3 = document.getElementById("imgDetItaipu")
-let imagem4 = document.getElementById("imgDetAgriShow")
+  //* Norte
+  else if (valor === "Nordeste") {
+    regiao.innerHTML = 
+    `<div class="eventosSelect">
+    <h3>Agro Rosário 2026</h3>
+    <strong>Data:</strong> 5 a 7 de março de 2026<br>
+    <strong>Local:</strong> Rosário, Correntina - BA<br>
+    <a class = "linkEventosSelect" href="https://agrorosario.com.br/" target="agrorosario">Mais informações</a><br>
+    
+    <br><h3>Congresso Brasileiro de Nematologia 2026</h3>
+    <strong>Data:</strong> 31 de agosto a 03 de setembro de 2026<br>
+    <strong>Local:</strong> Mar Hotel Convention, Recife – PE<br>
+    <a class = "linkEventosSelect" href="https://40cbn.com.br/" target="cbn">Mais informações</a><br>
+    </div>`;
+    regiao.style.display = "block";
+  }
 
-evento1.addEventListener("click", () => {
+  //* Centro Oeste
+  else if (valor === "CentroOeste") {
+    regiao.innerHTML = 
+    `<div class="eventosSelect">
+    <h3>Dinetec Canarana - MT 2026</h3>
+    <strong>Data:</strong> 14 a 16 de janeiro de 2026<br>
+    <strong>Local:</strong> Canarana - MT<br>
+    <a class = "linkEventosSelect" href="https://www.dinetec.com.br/canarana/" target="dinetec">Mais informações</a><br>
+    
+    <br><h3>CBA Goiânia 2026</h3>
+    <strong>Data:</strong> 20 a 22 de abril de 2026<br>
+    <strong>Local:</strong> Goiânia - GO<br>
+    <a class = "linkEventosSelect" href="https://www.cbago.com.br/" target="cbago">Mais informações</a><br>
+    </div>`;
+    regiao.style.display = "block";
+  }
 
-  console.log("AgroBrasília");
-  infoEvento1.style.display = "block";
-   evento2.style.display = "none";
-    evento3.style.display = "none";
-    evento4.style.display = "none";
-    evento5.style.display = "none";
+  //* Sudeste
+  else if (valor === "Sudeste") {
+    regiao.innerHTML = 
+    `<div class="eventosSelect">
+    <h3> VI Congresso Brasileiro de Direito do Agronegócio</h3>
+    <strong>Data:</strong> 30 de março de 2026<br>
+    <strong>Local:</strong> Hotel Renaissance, São Paulo - SP<br> 
+    <a class = "linkEventosSelect" href="https://www.seminariodocafe.com.br/" target="seminarioDoCafe">Mais informações</a><br>
+    
+    <br><h3>MilkShow 2026</h3>
+    <strong>Data:</strong> 07 a 11 de Julho de 2026<br>
+    <strong>Local:</strong> Parque de Exposições de Patos de Minas - MG<br>
+    <a class = "linkEventosSelect" href="https://milkshowagro.com.br/" target="milkShowAgro">Mais informações</a>
+    </div>`;
+    regiao.style.display = "block";
+  }
 
-    imagem1.style.display = "none";
-    imagem2.style.display = "none";
-    imagem3.style.display = "none";
-    imagem4.style.display = "none";
-
- 
+  //* Sul
+  else if (valor === "Sul") {
+    regiao.innerHTML = 
+    `<div class="eventosSelect">
+    <h3>PorkExpo Brasil & LATAM 2026</h3>
+    <strong>Data:</strong> 28 e 29 de abril de 2026<br>
+    <strong>Local:</strong> Recanto Cataratas Thermas Resort & Convention, Foz do Iguaçu – PR<br>
+    <a class = "linkEventosSelect" href="https://porkexpo.com.br/porkexpo-latam/" target="porkexpo">Mais informações</a><br>
+    
+    <br><h3>ExpoMAR 2026</h3>
+    <strong>Data:</strong> 24 a 26 de junho de 2026<br>
+    <strong>Local:</strong> Itajaí – SC<br>
+    <a class = "linkEventosSelect" href="https://expomar.com.br/programacao" target="expormar">Mais informações</a>
+    </div>`;
+    regiao.style.display = "block";
+  }
+  else {
+    regiao.textContent = " ";
+    regiao.style.display = "none";
+  }
 });
 
