@@ -29,62 +29,19 @@
      +-------------------------------------------------+ -->
 
       <div class="container">
-        <div id="carrossel">
-          <!-- Colocar no carrossel e detalhes -->
-          <button class="btn" id="btnVoltar">◀</button>
-          <div id="primeiraSessao">
-            <img
-            class="imagensCarrossel"
-            id="agroBrasilia"
-            src="imagens/agri_brasilia.png"
-            />
-            <img
-            class="imagensCarrossel"
-            id="norteShow"
-            src="imagens/norte_show.png"
-            />
-            <img
-            class="imagensCarrossel"
-            id="sealba"
-            src="imagens/sealba_show.png"
-            />
-          </div>
-          <div id="segundaSessao">
-            <img
-            class="imagensCarrossel"
-            id="itaipu"
-            src="imagens/itaipu.png"
-            />
-            
-            <img
-            class="imagensCarrossel"
-            id="agriShow"
-            src="imagens/agri_show.png"
-            />
-          </div>
-          <!-- <img
-            class="imagensCarrossel"
-            id="agriShow"
-            src="imagens/agri_show.png"
-            /> -->
-            <button class="btn" id="btnPassar">▶</button>
-          </div> <!-- fecha a div carrossel -->
-          
-          <!-- +-------------------------------------------------+
-            |              SELECT DE REGIÃO                   |
-            +-------------------------------------------------+ -->
-            
-            <div id="eventos">
-              <label class="label" for="regioes">Escolha a Região:</label>
-              <select id="regioes" name="regioes">
-                <option value="" selected disabled hidden>Selecione</option>
-                <option value="Norte">Norte</option>
-                <option value="Nordeste">Nordeste</option>
-                <option value="CentroOeste">Centro Oeste</option>
-            <option value="Sudeste">Sudeste</option>
-            <option value="Sul">Sul</option>
-          </select>
+      <button class="arrow-left control"><img id="setaEsquerda" src="setas/setaEsquerda.png" aria-label="Previuos Image"
+          alt="setaEsquerda"></button>
+      <div class="gallery-wrapper">
+        <div class="gallery">
+          <img src="imagens/agri_brasilia.png" class="item current-item">
+          <img src="imagens/agri_show.png" alt="Animal Image" class="item current-item">
+          <img src="imagens/bandeiraBrasil.png" alt="Street Image" class="item current-item">
+          <img src="imagens/itaipu.png" alt="Zoo Image" class="item current-item">
+          <img src="imagens/norte_show.png" alt="Model Image" class="item current-item"> 
         </div>
+      </div>
+      <button class="arrow-right control" aria-label="Previuos Image"><img id="setaDireita" src="setas/setaDireita.png" alt=""></button>
+    </div>
   
 <!-- +-------------------------------------------------+
      |             DETALHES DOS EVENTOS                |
