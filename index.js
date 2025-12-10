@@ -85,56 +85,41 @@ ir para o topo.
 // }
 
 /*  +-------------------------------------------+
-    |       CARROSEL DE IMAGENS  parte 3        |
+    |       CARROSEL DE IMAGENS  parte Final    |
     +-------------------------------------------+*/
 
-let lista = document.getElementById("carrossel");
-let botaoEsquerdo = document.getElementById("btnVoltar");
-let botaoDireito = document.getElementById("btnPassar");
-let primeiraSessao = document.getElementById("primeiraSessao");
-let segundaSessao = document.getElementById("segundaSessao");
+const controls = document.querySelectorAll('.control');
+let currentItem = 0;
+const items = document.querySelectorAll('.item');
+const maxItems = items.length;
 
-botaoDireito.addEventListener("click", () => {
-  console.log("clicado direita");
+controls.forEach(control => {
+    control.addEventListener('click', () => {
+        const isLeft = control.classList.contains('arrow-left');
 
-  // Carrossel da Shopee kkkkk
+        if (isLeft) {
+            currentItem -= 1
+        } else {
+            currentItem += 1
+        }
 
-  if (
-    segundaSessao.style.display == "block" &&
-    primeiraSessao.style.display == "none"
-  ) {
-    segundaSessao.style.display = "none";
-    primeiraSessao.style.display = "block";
-  } else {
-    segundaSessao.style.display = "block";
-    primeiraSessao.style.display = "none";
-  }
+        if (currentItem >= maxItems) {
+            currentItem = 0
+        } if (currentItem < 0) {
+            currentItem = maxItems - 1
+        }
+        console.log('control clicked', isLeft, currentItem,maxItems);
 
-  //lista.scrollLeft += 700;
-  //lista.style.scrollLeft += 700;
+        items.forEach( item => item.classList.remove('current-item'));
+
+        items[currentItem].scrollIntoView({
+            inline:"center",
+            behavior:"smooth"
+        })
+        items[currentItem].classList.add('current-item')
+    });
 });
 
-//sera se não tem que passar esses paramentro com style não?
-// tipo isso: lista.style.scrollLeft += 700;
-// eu fiz de um jeito mais simplificado , usando uma div e as imagens dentro dela
-
-botaoEsquerdo.addEventListener("click", () => {
-  console.log("clicado esquerda");
-
-  if (
-    segundaSessao.style.display == "none" &&
-    primeiraSessao.style.display == "block"
-  ) {
-    segundaSessao.style.display = "block";
-    primeiraSessao.style.display = "none";
-  } else {
-    segundaSessao.style.display = "none";
-    primeiraSessao.style.display = "block";
-  }
-
-  // lista.scrollLeft -= 700;
-  // lista.style.scrollLeft += 700;
-});
 
 /*  +-------------------------------------------+
     |           Abrir Site Eventos              |
