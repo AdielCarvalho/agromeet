@@ -117,86 +117,103 @@ ul {
     |             Estilos Carrossel             |
     +-------------------------------------------+*/
 
-.container {
-  padding: 15px;
-  max-width: 1400px;
-  margin: auto;
-  gap: 2rem;
-  display: flex;
-}
-
-#setaEsquerda,
-#setaDireita {
-  width: 40px;
-}
-
-#setaDireita {
-  left: auto;
-  right: 0;
-  background: transparent
-}
-
-.gallery-wrapper {
-  overflow-x: auto;
-}
-
-.gallery {
-  display: flex;
-  flex-flow: row nowrap;
-  gap: 15px;
-}
-
-.arrow-left,
-.arrow-right {
-  /* position: absolute; */
-  top: auto;
-  left: 0;
-  right: auto;
-  bottom: auto;
-  line-height: 250px;
-  width: 40px;
-  text-align: center;
-  cursor: pointer;
-  border: none;
-  background: transparent;
-}
-
-.arrow-right {
-  /* left: auto;
-  right: 0; */
-  background: transparent
-}
-
-.item {
-  width: 395px;
-  height: 250px;
-  flex-shrink: 0;
-  opacity: 0.5;
-  border: 2px solid white;
-  transition: all 600ms ease-in-out;
+.imagensCarrossel {
+  width: 300px;
+  height: 200px;
   cursor: pointer;
   transition: 0.25s;
   flex-shrink: 0;
 }
-.item:hover {
-  transform: scale(1.02)
+
+.imagensCarrossel:hover {
+  transform: scale(1.1);
 }
 
-.current-item {
-  opacity: 1;
+
+/* Ue pra que isso se tem classe?
+#agroBrasilia {
+  width: 350px;
+  height: 200px;
 }
 
-.gallery-wrapper::-webkit-scrollbar {
+#norteShow {
+  width: 350px;
+  height: 200px;
+}
+
+#sealba {
+  width: 350px;
+  height: 200px;
+}
+
+#itaipu {
+  width: 350px;
+  height: 200px;
+}
+
+#agriShow {
+  width: 350px;
+  height: 200px;
+} */
+
+#norteShow,
+#sealba,
+#itaipu,
+#agriShow {
+  cursor: not-allowed;
+  width: 350px;
+  height: 200px;
+}
+
+/* Alterar imagem que estava desproporcional Adiel*/
+#imgDetNorteShow,
+#imgDetSealba {
+  width: 350px;
+  height: 200px;
+}
+
+.btn {
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: 100%;
+  cursor: pointer;
+  border: none;
+  background-color: #fff;
+  color: #124421;
+  /* margin-bottom: 20px; */
+  font-size: 18px;
+  /* position: absolute;*/
+}
+
+#carrossel {
+  background-color: #2a2b26;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 2rem;
+  margin-bottom: 40px;
+  position: relative;
+  gap: 1rem;
+}
+
+#segundaSessao,
+#primeiraSessao {
+  display: none;
+  display: flex;
+  gap: 15px;
+
+}
+
+#segundaSessao {
   display: none;
 }
 
-img {
-  line-height: 300px;
-}
 
 /*  +-------------------------------------------+
     |             Select Região                 |
     +-------------------------------------------+*/
+    
 #eventos {
   /*background-color: aqua; só pra poder ver a parte melhor, depois tirar */
   display: flex;
@@ -213,7 +230,7 @@ img {
   margin-right: 15px;
 }
 
-#regioes {
+#regioes { /* esse diz ao selector em si */
   background-color: rgb(54, 70, 39);
   border-color: rgb(54, 70, 39);
   color: #ffffff;
@@ -222,6 +239,32 @@ img {
   min-width: 50px;
   padding: 5px;
 }
+
+#legenda-regiao { /*aqui é o bloco onde as infos que foram do innerText do JS vão aparecer */
+    display: none; /*isso faz com que o pedaço todo fique escondido e só apareça quando o block estiver ativo no JS*/
+    width: 100%;
+    height: 230px;
+    margin: 20px auto;
+    padding: 1rem;
+    background: rgb(224, 201, 165);
+    box-shadow: 0 10px 20px #0009;
+    color: rgb(123, 88, 84);
+    line-height: 1.2;
+}
+
+.eventosSelect h3 {
+  font-weight: bold;
+  font-size: 24px;
+  border-bottom: solid;
+  border-color: #124421;
+}
+
+.linkEventosSelect {
+  color: #124421;
+  cursor: pointer;
+}
+
+
 
 /*  +-------------------------------------------+
     |             Estilos Detalhes              |
