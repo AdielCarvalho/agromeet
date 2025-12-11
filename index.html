@@ -1,244 +1,287 @@
 <!DOCTYPE html>
-<html>
-
+<html> 
 <head>
-  <title></title>
+  <title>AgroMeet</title>
   <meta charset="UTF-8" />
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="shotcut icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/2826/2826092.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2826/2826092.png" type="image/png">
 </head>
 
 <body>
-  <!-- +-------------------------------------------------+
+      <!-- +-------------------------------------------------+
       |                      LOGO E MENU                     |
       +-------------------------------------------------+ -->
-  <header>
+      <header>
 
-    <a href="#"><img id="logo" src="imagens/logo-agro-meet.jpg" alt="logo do site" /></a>
-    <nav>
-      <ul>
-        <li><a class="nav-link" href="#regioes">Menu</a></li>
-        <li><a class="nav-link" href="#eventos">Eventos</a></li>
-        <li><a class="nav-link" href="#informacoes">Sobre Nós</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main>
-    <!-- +-------------------------------------------------+
-     |              CARROSSEL DE IMAGENS               |
-     +-------------------------------------------------+ -->
+        <div>
+          <a href="#"><img id="logo" src="imagens/logo-agro-meet.jpg" alt="logo do site" /></a>
+          
+          <img id="menu-mobile" src="imagens/icones/icone-menu-mobile.svg" alt="icone menu mobile">
+          <img id="icone-fechar" src="imagens/icones/icone-fechar.svg" alt="icone fechar menu mobile">
+        </div>
+      
+      <nav class="nav-bar">
+        <ul id="nav-list">
+          <li class="nav-item"><a class="nav-link" href="#escolha-regiao">Regiões</a></li>
+          <li class="nav-item"><a class="nav-link" href="#informacoes">Sobre Nós</a></li>
+        </ul>
+      </nav>
+    </header>
+  
+    <main>
 
     <div class="container">
-      <div id="carrossel">
-        <!-- Colocar no carrossel e detalhes -->
-        <button class="btn" id="btnVoltar">◀</button>
-        <div id="primeiraSessao">
-          <img class="imagensCarrossel" id="agroBrasilia" src="imagens/agri_brasilia.png" />
-          <img class="imagensCarrossel" id="norteShow" src="imagens/norte_show.png" />
-          <img class="imagensCarrossel" id="sealba" src="imagens/sealba_show.png" />
-        </div>
-        <div id="segundaSessao">
-          <img class="imagensCarrossel" id="itaipu" src="imagens/itaipu.png" />
 
-          <img class="imagensCarrossel" id="agriShow" src="imagens/agri_show.png" />
-        </div>
-        <!-- <img
-            class="imagensCarrossel"
-            id="agriShow"
-            src="imagens/agri_show.png"
-            /> -->
-        <button class="btn" id="btnPassar">▶</button>
-      </div> <!-- fecha a div carrossel -->
+          <!----------------------------------------------------------
+          |             1 SESSÃO - CARROSSEL DE IMAGENS              |
+          <---------------------------------------------------------->
+          <section id="carrossel">
+            <div class="containerCarrosel">
 
-      <!-- +-------------------------------------------------+
-            |              SELECT DE REGIÃO                   |
-            +-------------------------------------------------+ -->
+              <button class="arrow-left control">
+                <img id="setaEsquerda" src="imagens/setas/setaEsquerda.png" aria-label="Previuos Image"
+                  alt="setaEsquerda">
+              </button>
 
-      <div id="eventos">
-        <label class="label" for="regioes">Escolha a Região:</label>
-        <select id="regioes" name="regioesSelect">
-          <option id="selecione" value="selecione">Selecione</option>
-          <option id="selecioneNorte" value="Norte">Norte</option>
-          <option id="selecioneNordeste" id="selecione" value="Nordeste">Nordeste</option>
-          <option id="selecioneCentro" value="CentroOeste">Centro Oeste</option>
-          <option id="selecioneSudeste" value="Sudeste">Sudeste</option>
-          <option id="selecioneSul" value="Sul">Sul</option>
-        </select>
-      </div>
-
-
-      <!--* Div para aparecer o a legenda do item selecionado no select -->
-      <div id="legenda-regiao">
-        <p></p>
-      </div>
-
-      <!-- +-------------------------------------------------+
-     |             DETALHES DOS EVENTOS                |
-     +-------------------------------------------------+ -->
-
-      <div class="box" id="detalhes"> <!-- clique numa imagem do carrossel e scroll pra cá-->
-
-        <!-- EVENTO 1 -->
-        <div id="evento1" class="containerDetalhes">
-          <div class="imagemEvento" id="imagemAgroBrasilia"> <!-- imagem a esquerda -->
-            <img id="imgDetAgroBrasilia" src="imagens/agri_brasilia.png" alt="imagemAgroBrasilia">
-          </div>
-
-          <div class="eventoInfo" id="detalhesAgroBrasilia">
-            <h3 id="TituloAgroBrasilia">AgroBrasília</h3>
-            <p id="texto"> A AgroBrasília é uma feira de tecnologia e negócios voltada para empreendedores rurais de
-              diversos portes e segmentos, Realizada pela Cooperativa Agropecuária da Região do Distrito Federal
-              (COOPA-DF).</p> <!-- este P esta relacionado na função CLIQUE NA IMAGEM,no JS-->
-
-            <div class="detalhesAdicionais">
-              <p id="data"><strong>Data:</strong> 19 a 23 de maio/2026</p>
-              <p id="local"><strong>Local:</strong></p>
-              <div class="localização">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3470.558903422431!2d-47.5534341!3d-16.0087033!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9359fb110482be7d%3A0x57e35792e40f6a5c!2sAgro%20Bras%C3%ADlia%20-%20Feira%20de%20Tecnologia%20e%20Neg%C3%B3cios%20do%20Agro!5e1!3m2!1spt-BR!2sbr!4v1764982285751!5m2!1spt-BR!2sbr"
-                  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <div class="gallery-wrapper">
+                <div class="gallery">
+                  <img src="imagens/agri_brasilia.png" alt="Logo agroBrasilia" class="item current-item" id="agroBrasilia">
+                  <img src="imagens/agri_show.png" alt="Logo agriShow" class="item current-item" id="agriShow">
+                  <img src="imagens/selba_show.png" alt="Logo sealba" class="item current-item" id="sealba">
+                  <img src="imagens/itaipu.png" alt="Logo itaipu" class="item current-item" id="itaipu">
+                  <img src="imagens/norte_show.png" alt="Logo norteShow" class="item current-item" id="norteShow"> 
+                </div>
               </div>
-              <button class="botaoSite" id="siteAgroBrasilia" data-site-evento="https://agrobrasilia.com.br/">Visite o
-                site ➜</button>
-            </div> <!-- fecha detalhesAdicionais -->
-          </div><!-- fecha a div detalhesAgroBrasilia-->
-        </div> <!-- fecha a div containerDetalhes-->
 
-        <!-- EVENTO 2 -->
-        <div id="evento2" class="containerDetalhes">
-          <div class="imagemEvento" id="imagemNorteShow"> <!-- imagem a esquerda -->
-            <img id="imgDetNorteShow" src="imagens/norte_show.png" alt="imagemNorteShow">
+              <button class="arrow-right control" aria-label="Previuos Image"><img id="setaDireita" src="imagens/setas/setaDireita.png" alt=""></button>
+              
+           </section> 
+          
+            <!-- +-------------------------------------------------+
+            |           2 SESSAO - ESCOLHA A REGIÃO                |
+            +-------------------------------------------------+---->
+            <!--Codigo substituido para funcionar a regiçao-->
+            
+            <div id="eventos">
+              <label class="label" for="regioes">Escolha a Região:</label>
+              <select id="regioes" name="regioesSelect">
+                <option id="selecione" value="selecione">Selecione</option>
+                <option id="selecioneNorte" value="Norte">Norte</option>
+                <option id="selecioneNordeste" id="selecione" value="Nordeste">Nordeste</option>
+                <option id="selecioneCentro" value="CentroOeste">Centro Oeste</option>
+                <option id="selecioneSudeste" value="Sudeste">Sudeste</option>
+                <option id="selecioneSul" value="Sul">Sul</option>
+              </select>
+            </div>
+      
+      
+            <!--* Div para aparecer o a legenda do item selecionado no select -->
+            <div id="legenda-regiao">
+              <p></p>
+            </div>    
+      
+      
+          <!----------------------------------------------------------
+          |                     DETALHES DOS EVENTOS                 |
+          <---------------------------------------------------------->
+            
+            <div class="box" id="detalhes"> <!-- clique numa imagem do carrossel e scroll pra cá-->
+      
+              <!-- EVENTO 1 -->
+              <div id="evento1" class="containerDetalhes">
+                <div class="imagemEvento" id="imagemAgroBrasilia"> <!-- imagem a esquerda -->
+                  <img class="imgDetalhes" id="imgDetAgroBrasilia" src="imagens/agri_brasilia.png" alt="imagemAgroBrasilia">
+                </div>
+      
+                <div class="eventoInfo" id="detalhesAgroBrasilia">
+                  <h3 id="TituloAgroBrasilia">AgroBrasília</h3>
+                  <p id="texto"> A "AgroBrasília" é uma feira de tecnologia e negócios voltada para empreendedores rurais de
+                    diversos portes e segmentos, Realizada pela Cooperativa Agropecuária da Região do Distrito Federal
+                    (COOPA-DF).</p> <!-- este P esta relacionado na função CLIQUE NA IMAGEM,no JS-->
+                    
+                    
+                    <div class="detalhesAdicionais">
+                      <div class="data-local">
+                        <p id="data"><strong>Data:</strong> 19 a 23 de maio/2026</p>
+                        <p id="local"><strong>Local:</strong></p>
+                      </div>
+                    <div class="localização">
+                      <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3470.558903422431!2d-47.5534341!3d-16.0087033!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9359fb110482be7d%3A0x57e35792e40f6a5c!2sAgro%20Bras%C3%ADlia%20-%20Feira%20de%20Tecnologia%20e%20Neg%C3%B3cios%20do%20Agro!5e1!3m2!1spt-BR!2sbr!4v1764982285751!5m2!1spt-BR!2sbr"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                      </iframe>
+                    </div>
+                    <button target="blank" rel="nofollow" class="botaoSite" id="siteAgroBrasilia" data-site-evento="https://agrobrasilia.com.br/">Visitar site ➜</button>
+                  </div>
+                </div>
+              </div> 
+      
+              <!-- EVENTO 2 -->
+              <div id="evento2" class="containerDetalhes">
+                <div class="imagemEvento" id="imagemNorteShow"> <!-- imagem a esquerda -->
+                  <img class="imgDetalhes" id="imgDetNorteShow" src="imagens/norte_show.png" alt="imagemNorteShow">
+                </div>
+      
+                <div class="eventoInfo" id="detalhesNorteShow">
+                  <h3 id="TituloNorteShow">Norte Show</h3>
+                  <p id="texto">Soluções tecnológicas para o homem do campo, palestras magnas e técnicas, oficinas,
+                    demonstração de produtos, leilões, novidades em maquinários, implementos agrícolas, veículos, tudo isso
+                    com foco em agricultura familiar, agricultura de precisão e pecuária.</p>
+      
+                  <div class="detalhesAdicionais">
+                    <div class="data-local">
+                      <p id="data"><strong>Data:</strong> 21 a 24 de abril/2026</p>
+                      <p id="local"><strong>Local:</p>
+                    </div>
+                    <div class="localização">
+                      <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d37016.66826694572!2d-55.51990807056424!3d-11.831413933600496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93082aa1ec610ebf%3A0x7d7b01dca23809d1!2sAcrinorte!5e1!3m2!1spt-BR!2sbr!4v1765322903362!5m2!1spt-BR!2sbr"
+                      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>                      </div>
+                    <button class="botaoSite" id="siteNorteShow"
+                      data-site-evento="https://www.norteshow.com.br/a-feira/">Visite o site ➜</button>
+                  </div> <!-- fecha detalhesAdicionais -->
+                </div><!-- fecha a div detalhesNorteShow-->
+              </div> <!-- fecha a div containerDetalhes-->
+      
+      
+              <!-- EVENTO 3 -->
+              <div id="evento3" class="containerDetalhes">
+                <div class="imagemEvento" id="imagemSealba">
+                  <img class="imgDetalhes" id="imgDetSealba" src="imagens/selba_show.png"imagemSealba">
+                </div>
+      
+                <div class="eventoInfo" id="detalhesSealba">
+                  <h3 id="TituloSealba">Sealba Show</h3>
+                  <p id="texto">A maior vitrine do agronegócio da região Sealba já tem data marcada. O Sealba Show 2026 vai
+                    reunir tecnologia, inovação e oportunidades que movimentam o campo e fortalecem o produtor. Aqui, o agro
+                    se encontra para planejar a próxima safra, trocar experiências e fechar bons negócios. De pequenos a
+                    grandes produtores, todos têm espaço para crescer, aprender e impulsionar seus resultados com as melhores
+                    soluções do mercado.</p>
+      
+                  <div class="detalhesAdicionais">
+                    <div class="data-local">
+                      <p id="data"><strong>Data:</strong> 04 a 07 de fevereiro/2026</p>
+                      <p id="local"><strong>Local:</p>
+                    </div>
+                    <div class="localização">
+                      <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7823.023115780456!2d-37.46974065614809!3d-10.62331769371802!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x70fee274079f931%3A0xf5cf7a4fd9b0cadc!2sParque%20de%20Vaquejada%20Cunha%20Menezes!5e1!3m2!1spt-BR!2sbr!4v1765324832526!5m2!1spt-BR!2sbr"
+                      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>                      </div>
+                    <button class="botaoSite" id="siteSealba" data-site-evento="https://www.norteshow.com.br/a-feira/">Visite
+                      o site ➜</button>
+                  </div>
+                </div>
+              </div> 
+      
+              <!-- EVENTO 4 -->
+              <div id="evento4" class="containerDetalhes">
+                <div class="imagemEvento" id="imagemItaipu"> <!-- imagem a esquerda -->
+                  <img class="imgDetalhes" id="imgDetItaipu" src="imagens/itaipu.png" alt="imagemItaipu">
+                </div>
+      
+                <div class="eventoInfo" id="detalhesItaipu">
+                  <h3 id="TituloItaipu">Itaipu Rural Show</h3>
+                  <p id="texto">O Itaipu Rural Show é uma exposição segmentada no agronegócio. São mais de 20 hectares de área
+                    própria e mais de 50 mil visitantes por edição. O evento é realizado durante quatro dias do mês de
+                    Fevereiro em cada ano e conta com aproximadamente 300 empresas expositoras de tendências e conhecimento do
+                    agronegócio para o empresário rural.</p>
+      
+                  <div class="detalhesAdicionais">
+                    <div class="data-local">
+                      <p id="data"><strong>Data:</strong> 18 a 21 de fevereiro/2026</p>
+                      <p id="local"><strong>Local:</p>
+                    </div>
+                    <div class="localização">
+                      <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4223.165542142192!2d-53.0031089!3d-26.8318814!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94fb209c2e7fb689%3A0x36dbd216b13b88e9!2sItaipu%20Rural%20Show!5e1!3m2!1spt-BR!2sbr!4v1765324184633!5m2!1spt-BR!2sbr"
+                      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
+                  </div>
+                    <button class="botaoSite" id="siteItaipu" data-site-evento="https://itaipururalshow.com.br/">Visite o site ➜</button>
+                  </div> <!-- fecha detalhesAdicionais -->
+                </div><!-- fecha a div detalhesSealba-->
+              </div> <!-- fecha a div containerDetalhes-->
+      
+              <!-- EVENTO 5 -->
+              <div id="evento5" class="containerDetalhes">
+                <div class="imagemEvento" id="imagemAgriShow"> <!-- imagem a esquerda -->
+                  <img class="imgDetalhes" id="imgDetAgriShow" src="imagens/agri_show.png" alt="imagemAgriShow">
+                </div>
+      
+                <div class="eventoInfo" id="detalhesAgriShow">
+                  <h3 id="TituloAgriShow">Agrishow</h3>
+                  <p id="texto">Uma das maiores feiras de agronegócio, a Agrishow reúne soluções para todos os tipos de
+                    culturas e tamanhos de propriedades, além de ser reconhecida como o palco dos lançamentos das principais
+                    tendências e inovações para o agronegócio.</p>
+      
+                  <div class="detalhesAdicionais">
+                    <div class="data-local">
+                      <p id="data"><strong>Data:</strong> 27 de abril a 01 de Maio/2026</p>
+                      <p id="local"><strong>Local:</p>
+                    </div>
+                    <div class="localização">
+                      <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4412.184705653278!2d-47.873214100000006!3d-21.207945100000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b9bc5ab389efdd%3A0x97728b197c7980a6!2sIAC%20Centro%20de%20Cana!5e1!3m2!1spt-BR!2sbr!4v1765324622030!5m2!1spt-BR!2sbr"
+                      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <button class="botaoSite" id="siteAgriShow" data-site-evento="https://www.agrishow.com.br/">Visite o site ➜</button>
+                  </div> <!-- fecha detalhesAdicionais -->
+                </div><!-- fecha a div detalhesSealba-->
+              </div> <!-- fecha a div containerDetalhes-->
+      
+            </div> <!-- fecha a div box detalhes que comporta os 5 eventos detalhados -->
+        </main>
+      
+        <!-- +-------------------------------------------------+
+          |                 RODAPÉ & INFOS                  |
+          +-------------------------------------------------+ -->
+          
+        <footer id="informacoes">
+          <div class="footer-group">
+                <div id="sobre">
+                  <h2 id="empresa">Agro Meet+</h2>
+                  <p class="sobre-a-empresa">
+                    Somos uma plataforma digital de Eventos do Agronegócio e temos como
+                    missão conectar experiências e pessoas através dos principais eventos
+                    Agro Nacionais e internacionais.
+                  </p>
+                  <p>📌 AE nº 5,Quadra 4, Conjunto E Senac - Sobradinho</p>
+                  <p>✉️ agromeet+@gmail.com</p>
+                </div>
+      
+                <div id="bandeira">
+                  <img id="bandeiraBrasil" src="imagens/bandeiraBrasil.png" />
+                </div>
+      
+                <div id="redes">
+                  <h2>Redes Sociais</h2>
+                  <div id="imgRedes">
+                    <a id="insta">
+                      <img id="instaimg" data-site-insta="https://www.instagram.com/" src="imagens/icones/icons8-instagram-48.png" />
+                    </a>
+                    <a id="face">
+                      <img id="faceimg" data-site-face="https://www.facebook.com/?locale=pt_BR" src="imagens/icones/icons8-facebook-novo.svg" />
+                    </a>
+                  </div>
+                </div>
+      
+                <div id="links">
+                  <h2>Links</h2>
+                  <ul class="links-list">
+                    <a class="nav-link" href="#politicaPriva">Políticas de Privacidade</a>
+                    <a class="nav-link" href="#lgpd">Políticas de Proteção de Dados</a>
+                    <a class="nav-link" href="#termos">Termos de uso</a>
+                  </ul>
+                </div>
+              </div>
+            <p id="msg-direito-reservado">Todos os Direitos Reservados!</p>
           </div>
-
-          <div class="eventoInfo" id="detalhesNorteShow">
-            <h3 id="TituloNorteShow">Norte Show</h3>
-            <p id="texto">Soluções tecnológicas para o homem do campo, palestras magnas e técnicas, oficinas,
-              demonstração de produtos, leilões, novidades em maquinários, implementos agrícolas, veículos, tudo isso
-              com foco em agricultura familiar, agricultura de precisão e pecuária.</p>
-
-            <div class="detalhesAdicionais">
-              <p id="data"><strong>Data:</strong> 21 a 24 de abril/2026</p>
-              <p id="local"><strong>Local:</strong> Sinop - MT</p>
-              <button class="botaoSite" id="siteNorteShow"
-                data-site-evento="https://www.norteshow.com.br/a-feira/">Visite o site ➜</button>
-            </div> <!-- fecha detalhesAdicionais -->
-          </div><!-- fecha a div detalhesNorteShow-->
-        </div> <!-- fecha a div containerDetalhes-->
-
-
-        <!-- EVENTO 3 -->
-        <div id="evento3" class="containerDetalhes">
-          <div class="imagemEvento" id="imagemSealba"> <!-- imagem a esquerda -->
-            <img id="imgDetSealba" src="imagens/sealba_show.png" alt="imagemSealba">
-          </div>
-
-          <div class="eventoInfo" id="detalhesSealba">
-            <h3 id="TituloSealba">Sealba Show</h3>
-            <p id="texto">A maior vitrine do agronegócio da região Sealba já tem data marcada. O Sealba Show 2026 vai
-              reunir tecnologia, inovação e oportunidades que movimentam o campo e fortalecem o produtor. Aqui, o agro
-              se encontra para planejar a próxima safra, trocar experiências e fechar bons negócios. De pequenos a
-              grandes produtores, todos têm espaço para crescer, aprender e impulsionar seus resultados com as melhores
-              soluções do mercado.</p>
-
-            <div class="detalhesAdicionais">
-              <p id="data"><strong>Data:</strong> 04 a 07 de fevereiro/2026</p>
-              <p id="local"><strong>Local:</strong> Itabaiana - SE</p>
-              <button class="botaoSite" id="siteSealba" data-site-evento="https://sealbashow.com.br/">Visite o site
-                ➜</button>
-            </div> <!-- fecha detalhesAdicionais -->
-          </div><!-- fecha a div detalhesSealba-->
-        </div> <!-- fecha a div containerDetalhes-->
-
-        <!-- EVENTO 4 -->
-        <div id="evento4" class="containerDetalhes">
-          <div class="imagemEvento" id="imagemItaipu"> <!-- imagem a esquerda -->
-            <img id="imgDetItaipu" src="imagens/itaipu.png" alt="imagemItaipu">
-          </div>
-
-          <div class="eventoInfo" id="detalhesItaipu">
-            <h3 id="TituloItaipu">Itaipu Rural Show</h3>
-            <p id="texto">O Itaipu Rural Show é uma exposição segmentada no agronegócio. São mais de 20 hectares de área
-              própria e mais de 50 mil visitantes por edição. O evento é realizado durante quatro dias do mês de
-              Fevereiro em cada ano e conta com aproximadamente 300 empresas expositoras de tendências e conhecimento do
-              agronegócio para o empresário rural.</p>
-
-            <div class="detalhesAdicionais">
-              <p id="data"><strong>Data:</strong> 18 a 21 de fevereiro/2026</p>
-              <p id="local"><strong>Local:</strong> Pinhalzinho - SC</p>
-              <button class="botaoSite" id="siteItaipu" data-site-evento="https://itaipururalshow.com.br/">Visite o site
-                ➜</button>
-            </div> <!-- fecha detalhesAdicionais -->
-          </div><!-- fecha a div detalhesSealba-->
-        </div> <!-- fecha a div containerDetalhes-->
-
-        <!-- EVENTO 5 -->
-        <div id="evento5" class="containerDetalhes">
-          <div class="imagemEvento" id="imagemAgriShow"> <!-- imagem a esquerda -->
-            <img id="imgDetAgriShow" src="imagens/agri_show.png" alt="imagemAgriShow">
-          </div>
-
-          <div class="eventoInfo" id="detalhesAgriShow">
-            <h3 id="TituloAgriShow">Agrishow</h3>
-            <p id="texto">Uma das maiores feiras de agronegócio, a Agrishow reúne soluções para todos os tipos de
-              culturas e tamanhos de propriedades, além de ser reconhecida como o palco dos lançamentos das principais
-              tendências e inovações para o agronegócio.</p>
-
-            <div class="detalhesAdicionais">
-              <p id="data"><strong>Data:</strong> 27 de abril a 01 de Maio/2026</p>
-              <p id="local"><strong>Local:</strong> Ribeirão Preto - SP</p>
-              <button class="botaoSite" id="siteAgriShow" data-site-evento="https://www.agrishow.com.br/">Visite o site
-                ➜</button>
-            </div> <!-- fecha detalhesAdicionais -->
-          </div><!-- fecha a div detalhesSealba-->
-        </div> <!-- fecha a div containerDetalhes-->
-
-      </div> <!-- fecha a div box detalhes que comporta os 5 eventos detalhados -->
-  </main>
-
-  <!-- +-------------------------------------------------+
-    |                 RODAPÉ & INFOS                  |
-    +-------------------------------------------------+ -->
-
-  <footer id="informacoes">
-    <div id="sobre">
-      <h2 id="empresa">Agro Meet+</h2>
-      <p>
-        Somos uma plataforma digital de Eventos do Agronegócio e temos como
-        missão conectar experiências e pessoas através dos principais eventos
-        Agro Nacionais e internacionais.
-      </p>
-      <p>📌 AE nº 5,Quadra 4, Conjunto E Senac - Sobradinho</p>
-      <p>✉️ agromeet+@gmail.com</p>
+        </footer>
     </div>
 
-    <div id="bandeira">
-      <img id="bandeiraBrasil" src="imagens/bandeiraBrasil.png" />
-    </div>
-
-    <div id="redes">
-      <h2>Redes Sociais</h2>
-      <div id="imgRedes">
-        <button id="insta">
-          <img id="instaimg" src="imagens/redes/insta.png" />
-        </button>
-        <button id="face">
-          <img id="faceimg" src="imagens/redes/face.png" />
-        </button>
-      </div>
-    </div>
-    <div id="links">
-      <h2>Links</h2>
-      <a class="nav-link" href="#politicaPriva">Políticas de Privacidade</a>
-      <a class="nav-link" href="#lgpd">Políticas de Proteção de Dados</a>
-      <a class="nav-link" href="#termos">Termos de uso</a>
-      <p href="direito">Todos os Direitos Reservados!</p>
-    </div>
-    </div>
-  </footer>
-  </div>
-
-  <script src="index.js" type="module"></script>
+<script src="index.js" type="module"></script>
 </body>
-
+<!--Pode ficar avontade pra ir mexendo ai, qualquer problema avisa no zap zap -->
+<!-- fecho valeu -->
 </html>
