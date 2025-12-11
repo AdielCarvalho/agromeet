@@ -85,60 +85,47 @@ ir para o topo.
 // }
 
 /*  +-------------------------------------------+
-    |       CARROSEL DE IMAGENS  parte 3        |
+    |       CARROSEL DE IMAGENS  Final          |
     +-------------------------------------------+*/
 
-let lista = document.getElementById("carrossel");
-let botaoEsquerdo = document.getElementById("btnVoltar");
-let botaoDireito = document.getElementById("btnPassar");
-let primeiraSessao = document.getElementById("primeiraSessao");
-let segundaSessao = document.getElementById("segundaSessao");
+const controls = document.querySelectorAll(".control");
+let currentItem = 0;
+const items = document.querySelectorAll(".item");
+const maxItems = items.length;
 
-botaoDireito.addEventListener("click", () => {
-  console.log("clicado direita");
+controls.forEach((control) => {
+  control.addEventListener("click", () => {
+    console.log("Seta Apertada");
 
-  // Carrossel da Shopee kkkkk
+    const isLeft = control.classList.contains("arrow-left");
 
-  if (
-    segundaSessao.style.display == "block" &&
-    primeiraSessao.style.display == "none"
-  ) {
-    segundaSessao.style.display = "none";
-    primeiraSessao.style.display = "block";
-  } else {
-    segundaSessao.style.display = "block";
-    primeiraSessao.style.display = "none";
-  }
+    if (isLeft) {
+      currentItem -= 1;
+    } else {
+      currentItem += 1;
+    }
 
-  //lista.scrollLeft += 700;
-  //lista.style.scrollLeft += 700;
-});
+    if (currentItem >= maxItems) {
+      currentItem = 0;
+    }
+    if (currentItem < 0) {
+      currentItem = maxItems - 1;
+    }
+    console.log("control clicked", isLeft, currentItem, maxItems);
 
-//sera se não tem que passar esses paramentro com style não?
-// tipo isso: lista.style.scrollLeft += 700;
-// eu fiz de um jeito mais simplificado , usando uma div e as imagens dentro dela
+    items.forEach((item) => item.classList.remove("current-item"));
 
-botaoEsquerdo.addEventListener("click", () => {
-  console.log("clicado esquerda");
-
-  if (
-    segundaSessao.style.display == "none" &&
-    primeiraSessao.style.display == "block"
-  ) {
-    segundaSessao.style.display = "block";
-    primeiraSessao.style.display = "none";
-  } else {
-    segundaSessao.style.display = "none";
-    primeiraSessao.style.display = "block";
-  }
-
-  // lista.scrollLeft -= 700;
-  // lista.style.scrollLeft += 700;
+    items[currentItem].scroll({
+      inline: "center",
+      behavior: "smooth",
+    });
+    items[currentItem].classList.add("current-item");
+  });
 });
 
 /*  +-------------------------------------------+
-    |           Abrir Site Eventos              |
-    +-------------------------------------------+*/
+        |           Abrir Site Eventos              |
+        +-------------------------------------------+*/
 
 function redirecionar(idBotao) {
   let botaoSite = document.getElementById(idBotao);
@@ -157,15 +144,153 @@ redirecionar("siteAgriShow");
 
 // Teste -> mostra evento especifico com base em alguma condição
 
-// let evento1 = document.getElementById("agroBrasilia");
-// let infoEvento1 = document.getElementById("detalhes");
+/*  +-------------------------------------------+
+        |  Clique na imagem e apareca informações    |
+        +-------------------------------------------+*/
 
-// evento1.addEventListener("click", () => {
-//   console.log("AgroBrasília");
-//   infoEvento1.style.display = "block";
-// });
+let evento1 = document.getElementById("agroBrasilia");
+let evento2 = document.getElementById("norteShow");
+let evento3 = document.getElementById("sealba");
+let evento4 = document.getElementById("itaipu");
+let evento5 = document.getElementById("agriShow");
 
-//select funcionando as regioaes
+let imagem1 = document.getElementById("imgDetAgroBrasilia");
+let imagem2 = document.getElementById("imgDetNorteShow");
+let imagem3 = document.getElementById("imgDetSealba");
+let imagem4 = document.getElementById("imgDetItaipu");
+let imagem5 = document.getElementById("imgDetAgriShow");
+let fundo = document.getElementById("detalhes");
+
+evento1.addEventListener("click", () => {
+  let infoEvento1 = document.getElementById("detalhesAgroBrasilia");
+  let infoEvento2 = document.getElementById("detalhesNorteShow");
+  let infoEvento3 = document.getElementById("detalhesSealba");
+  let infoEvento4 = document.getElementById("detalhesItaipu");
+  let infoEvento5 = document.getElementById("detalhesAgriShow");
+  console.log("agroBrasília");
+  fundo.style.display = "block";
+
+  infoEvento1.style.display = "block";
+  infoEvento2.style.display = "none";
+  infoEvento3.style.display = "none";
+  infoEvento4.style.display = "none";
+  infoEvento5.style.display = "none";
+
+  imagem1.style.display = "block";
+  imagem2.style.display = "none";
+  imagem3.style.display = "none";
+  imagem4.style.display = "none";
+  imagem5.style.display = "none";
+
+  //     setTimeout(function() {
+  //     location.reload();
+  // }, 3000);
+});
+
+evento2.addEventListener("click", () => {
+  let infoEvento1 = document.getElementById("detalhesAgroBrasilia");
+  let infoEvento2 = document.getElementById("detalhesNorteShow");
+  let infoEvento3 = document.getElementById("detalhesSealba");
+  let infoEvento4 = document.getElementById("detalhesItaipu");
+  let infoEvento5 = document.getElementById("detalhesAgriShow");
+  console.log("norteShow");
+  fundo.style.display = "block";
+  infoEvento1.style.display = "none";
+  infoEvento2.style.display = "block";
+  infoEvento3.style.display = "none";
+  infoEvento4.style.display = "none";
+  infoEvento5.style.display = "none";
+
+  imagem1.style.display = "none";
+  imagem2.style.display = "block";
+  imagem3.style.display = "none";
+  imagem4.style.display = "none";
+  imagem5.style.display = "none";
+
+  //   setTimeout(function() {
+  //     location.reload();
+  // }, 3000);
+});
+
+evento3.addEventListener("click", () => {
+  let infoEvento1 = document.getElementById("detalhesAgroBrasilia");
+  let infoEvento2 = document.getElementById("detalhesNorteShow");
+  let infoEvento3 = document.getElementById("detalhesSealba");
+  let infoEvento4 = document.getElementById("detalhesItaipu");
+  let infoEvento5 = document.getElementById("detalhesAgriShow");
+  console.log("sealba");
+  fundo.style.display = "block";
+
+  infoEvento1.style.display = "none";
+  infoEvento2.style.display = "none";
+  infoEvento3.style.display = "block";
+  infoEvento4.style.display = "none";
+  infoEvento5.style.display = "none";
+
+  imagem1.style.display = "none";
+  imagem2.style.display = "none";
+  imagem3.style.display = "block";
+  imagem4.style.display = "none";
+  imagem5.style.display = "none";
+
+  //     setTimeout(function() {
+  //     location.reload();
+  // }, 3000);
+});
+
+evento4.addEventListener("click", () => {
+  let infoEvento1 = document.getElementById("detalhesAgroBrasilia");
+  let infoEvento2 = document.getElementById("detalhesNorteShow");
+  let infoEvento3 = document.getElementById("detalhesSealba");
+  let infoEvento4 = document.getElementById("detalhesItaipu");
+  let infoEvento5 = document.getElementById("detalhesAgriShow");
+  console.log("itaipu");
+  fundo.style.display = "block";
+
+  infoEvento1.style.display = "none";
+  infoEvento2.style.display = "none";
+  infoEvento3.style.display = "none";
+  infoEvento4.style.display = "block";
+  infoEvento5.style.display = "none";
+
+  imagem1.style.display = "none";
+  imagem2.style.display = "none";
+  imagem3.style.display = "none";
+  imagem4.style.display = "block";
+  imagem5.style.display = "none";
+
+  //   setTimeout(function() {
+  //     location.reload();
+  // }, 3000);
+});
+
+evento5.addEventListener("click", () => {
+  let infoEvento1 = document.getElementById("detalhesAgroBrasilia");
+  let infoEvento2 = document.getElementById("detalhesNorteShow");
+  let infoEvento3 = document.getElementById("detalhesSealba");
+  let infoEvento4 = document.getElementById("detalhesItaipu");
+  let infoEvento5 = document.getElementById("detalhesAgriShow");
+  console.log("agriShow");
+  fundo.style.display = "block";
+
+  infoEvento1.style.display = "none";
+  infoEvento2.style.display = "none";
+  infoEvento3.style.display = "none";
+  infoEvento4.style.display = "none";
+  infoEvento5.style.display = "block";
+
+  imagem1.style.display = "none";
+  imagem2.style.display = "none";
+  imagem3.style.display = "none";
+  imagem4.style.display = "none";
+  imagem5.style.display = "block";
+
+  //   setTimeout(function() {
+  //     location.reload();
+  // }, 3000);
+});
+
+//codigo do select (Região)
 const regiao = document.getElementById("legenda-regiao");
 
 document.getElementById("regioes").addEventListener("change", (event) => {
@@ -173,8 +298,7 @@ document.getElementById("regioes").addEventListener("change", (event) => {
 
   //* Norte
   if (valor === "Norte") {
-    regiao.innerHTML = 
-    `<div class="eventosSelect">
+    regiao.innerHTML = `<div class="eventosSelect">
       <h3> Rondônia Rural Show Internacional 2026</h3> 
       <strong>Data:</strong> 25 a 30 de maio de 2026<br> 
       <strong>Local:</strong> Sede oficial da Rondônia Rural Show Internacional, Ji-Paraná - RO<br>
@@ -187,13 +311,11 @@ document.getElementById("regioes").addEventListener("change", (event) => {
     <a class = "linkEventosSelect" href="https://portalbrasil.com.br/fenetec-para-2026-tecnologia-inovacao-e-negocios-no-agro-paraense/" target="fenetec">Mais informações</a><br>
     </div>`;
     regiao.style.display = "block";
-    
   }
 
   //* Norte
   else if (valor === "Nordeste") {
-    regiao.innerHTML = 
-    `<div class="eventosSelect">
+    regiao.innerHTML = `<div class="eventosSelect">
     <h3>Agro Rosário 2026</h3>
     <strong>Data:</strong> 5 a 7 de março de 2026<br>
     <strong>Local:</strong> Rosário, Correntina - BA<br>
@@ -209,8 +331,7 @@ document.getElementById("regioes").addEventListener("change", (event) => {
 
   //* Centro Oeste
   else if (valor === "CentroOeste") {
-    regiao.innerHTML = 
-    `<div class="eventosSelect">
+    regiao.innerHTML = `<div class="eventosSelect">
     <h3>Dinetec Canarana - MT 2026</h3>
     <strong>Data:</strong> 14 a 16 de janeiro de 2026<br>
     <strong>Local:</strong> Canarana - MT<br>
@@ -226,8 +347,7 @@ document.getElementById("regioes").addEventListener("change", (event) => {
 
   //* Sudeste
   else if (valor === "Sudeste") {
-    regiao.innerHTML = 
-    `<div class="eventosSelect">
+    regiao.innerHTML = `<div class="eventosSelect">
     <h3> VI Congresso Brasileiro de Direito do Agronegócio</h3>
     <strong>Data:</strong> 30 de março de 2026<br>
     <strong>Local:</strong> Hotel Renaissance, São Paulo - SP<br> 
@@ -243,8 +363,7 @@ document.getElementById("regioes").addEventListener("change", (event) => {
 
   //* Sul
   else if (valor === "Sul") {
-    regiao.innerHTML = 
-    `<div class="eventosSelect">
+    regiao.innerHTML = `<div class="eventosSelect">
     <h3>PorkExpo Brasil & LATAM 2026</h3>
     <strong>Data:</strong> 28 e 29 de abril de 2026<br>
     <strong>Local:</strong> Recanto Cataratas Thermas Resort & Convention, Foz do Iguaçu – PR<br>
@@ -256,10 +375,42 @@ document.getElementById("regioes").addEventListener("change", (event) => {
     <a class = "linkEventosSelect" href="https://expomar.com.br/programacao" target="expormar">Mais informações</a>
     </div>`;
     regiao.style.display = "block";
-  }
-  else {
+  } else {
     regiao.textContent = " ";
     regiao.style.display = "none";
   }
 });
 
+//Teste Secretos
+let insta = document.getElementById("instaimg");
+
+insta.addEventListener("click", () => {
+  window.open(insta.dataset.siteInsta);
+});
+
+// Click Footer Facebook
+let face = document.getElementById("faceimg");
+
+face.addEventListener("click", () => {
+  window.open(face.dataset.siteFace);
+});
+
+// Menu Hamburguer
+let menuMobile = document.getElementById("menu-mobile");
+let iconeFechar = document.getElementById("icone-fechar");
+let listaMenu = document.getElementById("nav-list");
+
+// Evento para quando clicar no icone do menu abrir os itens do nav
+menuMobile.addEventListener("click", () => {
+  menuMobile.classList.add("apagar");
+
+  iconeFechar.classList.add("mostrar");
+  listaMenu.classList.add("mostrar-lista");
+});
+
+// Evento para quando clicar no icone fechar voltar o icone do menu
+iconeFechar.addEventListener("click", () => {
+  menuMobile.classList.remove("apagar");
+  iconeFechar.classList.remove("mostrar");
+  listaMenu.classList.remove("mostrar-lista");
+});
